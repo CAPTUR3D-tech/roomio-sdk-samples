@@ -1860,7 +1860,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - RoomioReactNative (0.0.7):
+  - RoomioReactNative (0.0.8):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2257,7 +2257,7 @@ SPEC CHECKSUMS:
   ReactNativeDependencies: d3b7423ba1e52525e42085c8470109abde583d2e
   ReactNativeFileAccess: 18eac38bde9cf3cb3e96f36603a2488fc8cfe447
   RNShare: 8daf0e7ad8d877861ddfa50c97140c0bc3af976e
-  RoomioReactNative: a2de654cbd8551f6beba8b36f449f84a0a58025f
+  RoomioReactNative: da0a903efc17efa4b34ee9e000141f77ca58e6b6
   SocketRocket: 37aec555668fb852ec12e3c0de59a86ca58f0871
   Yoga: d1c536142c5ff8ec8cd856ab2a7c227a1d875c8e
   ZIPFoundation: dfd3d681c4053ff7e2f7350bc4e53b5dba3f5351

@@ -9,7 +9,7 @@ A SwiftUI app that scans a room with the Roomio SDK and shares the resulting bun
 
 ## Setup
 
-The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test` at version 0.0.7. The repository is private, so add a GitHub account with access to it under **Xcode → Settings → Accounts**.
+The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test` at version 0.0.8. The repository is private, so add a GitHub account with access to it under **Xcode → Settings → Accounts**.
 
 1. Open `RoomioSwiftUI.xcodeproj`. Xcode downloads the package.
 2. Select your team under **Signing & Capabilities**.

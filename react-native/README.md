@@ -11,7 +11,7 @@ A React Native app that scans a room with the Roomio SDK on its own scanning scr
 
 ## Setup
 
-The app depends on `@roomio/react-native-sdk` 0.0.7 from `https://cdn.roomio.io/sdk/react-native/0.0.7/roomio-react-native-sdk-0.0.7.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
+The app depends on `@roomio/react-native-sdk` 0.0.8 from `https://cdn.roomio.io/sdk/react-native/0.0.8/roomio-react-native-sdk-0.0.8.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
 
 1. Install this app's packages, from this folder:
 
