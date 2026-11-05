@@ -9,7 +9,7 @@ An Android app built with Activities and XML layouts that scans a room with the 
 
 ## Setup
 
-The app depends on `io.captur3d:roomio-sdk:0.0.8`, declared in `app/build.gradle.kts`. It comes from the Maven repository at `https://cdn.roomio.io/sdk/android/maven`, declared in `settings.gradle.kts`.
+The app depends on `io.captur3d:roomio-sdk:0.0.9`, declared in `app/build.gradle.kts`. It comes from the Maven repository at `https://cdn.roomio.io/sdk/android/maven`, declared in `settings.gradle.kts`.
 
 1. Open this folder in Android Studio.
 2. Replace `pk_test_replace_me` in `SampleApplication.kt` with your publishable key.

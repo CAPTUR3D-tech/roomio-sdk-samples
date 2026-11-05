@@ -13,7 +13,7 @@ The SDK has native code, so the app runs as a development build. Expo Go cannot 
 
 ## Setup
 
-The app depends on `@roomio/react-native-sdk` 0.0.8 from `https://cdn.roomio.io/sdk/react-native/0.0.8/roomio-react-native-sdk-0.0.8.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
+The app depends on `@roomio/react-native-sdk` 0.0.9 from `https://cdn.roomio.io/sdk/react-native/0.0.9/roomio-react-native-sdk-0.0.9.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
 
 1. Install this app's packages, from this folder:
 
@@ -53,6 +53,5 @@ The app depends on `@roomio/react-native-sdk` 0.0.8 from `https://cdn.roomio.io/
 | Setting | Why |
 | --- | --- |
 | `ios.deploymentTarget: "17.0"` | The SDK needs iOS 17 |
-| `@roomio/react-native-sdk` plugin | Adds the camera usage text. Pass `{ "cameraPermission": "…" }` to change it |
+| `@roomio/react-native-sdk` plugin | Adds the camera usage text and the Maven repository on cdn.roomio.io that hosts the Android SDK. Pass `{ "cameraPermission": "…" }` to change the text |
 | `expo-build-properties` `buildArchs: ["arm64-v8a"]` | The Android SDK is arm64 only |
-| `expo-build-properties` `extraMavenRepos` | Finds the Android SDK in the Maven repository on cdn.roomio.io |

@@ -259,7 +259,7 @@
 			repositoryURL = "https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test";
 			requirement = {
 				kind = exactVersion;
-				version = 0.0.8;
+				version = 0.0.9;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -22,6 +22,9 @@ apply plugin: "com.facebook.react.rootproject"
 
 allprojects {
     repositories {
-        maven { url "https://cdn.roomio.io/sdk/android/maven" }
+        maven {
+            url "https://cdn.roomio.io/sdk/android/maven"
+            content { includeGroup "io.captur3d" }
+        }
     }
 }

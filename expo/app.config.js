@@ -25,7 +25,6 @@ module.exports = {
       {
         android: {
           buildArchs: ['arm64-v8a'],
-          extraMavenRepos: ['https://cdn.roomio.io/sdk/android/maven'],
         },
       },
     ],
