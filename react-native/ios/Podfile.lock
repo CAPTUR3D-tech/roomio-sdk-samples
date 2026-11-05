@@ -1860,7 +1860,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - RoomioReactNative (0.0.6):
+  - RoomioReactNative (0.0.7):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
