@@ -2,6 +2,8 @@
 
 An Expo app that scans a room with the Roomio SDK on its own scanning screen and shares the resulting bundle.
 
+The code is in [`expo`](https://github.com/CAPTUR3D-tech/roomio-sdk-samples/tree/main/expo) in the samples repository.
+
 The SDK has native code, so the app runs as a development build. Expo Go cannot run it.
 
 ## Requirements
@@ -13,7 +15,7 @@ The SDK has native code, so the app runs as a development build. Expo Go cannot 
 
 ## Setup
 
-The app depends on `@roomio/react-native-sdk` 0.0.9 from `https://cdn.roomio.io/sdk/react-native/0.0.9/roomio-react-native-sdk-0.0.9.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
+The app depends on `@roomio/react-native-sdk` 0.0.11 from `https://cdn.roomio.io/sdk/react-native/0.0.11/roomio-react-native-sdk-0.0.11.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
 
 1. Install this app's packages, from this folder:
 

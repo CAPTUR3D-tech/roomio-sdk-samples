@@ -2,6 +2,8 @@
 
 A UIKit app that scans a room with the Roomio SDK and shares the resulting bundle.
 
+The code is in [`ios-uikit`](https://github.com/CAPTUR3D-tech/roomio-sdk-samples/tree/main/ios-uikit) in the samples repository.
+
 ## Requirements
 
 - Xcode 26 or later
@@ -9,7 +11,7 @@ A UIKit app that scans a room with the Roomio SDK and shares the resulting bundl
 
 ## Setup
 
-The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test` at version 0.0.9. The repository is private, so add a GitHub account with access to it under **Xcode → Settings → Accounts**.
+The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test` at version 0.0.11. The repository is private, so add a GitHub account with access to it under **Xcode → Settings → Accounts**.
 
 1. Open `RoomioUIKit.xcodeproj`. Xcode downloads the package.
 2. Select your team under **Signing & Capabilities**.

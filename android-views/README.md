@@ -2,6 +2,8 @@
 
 An Android app built with Activities and XML layouts that scans a room with the Roomio SDK and shares the resulting bundle.
 
+The code is in [`android-views`](https://github.com/CAPTUR3D-tech/roomio-sdk-samples/tree/main/android-views) in the samples repository.
+
 ## Requirements
 
 - Android Studio Koala or later
@@ -9,7 +11,7 @@ An Android app built with Activities and XML layouts that scans a room with the 
 
 ## Setup
 
-The app depends on `io.captur3d:roomio-sdk:0.0.9`, declared in `app/build.gradle.kts`. It comes from the Maven repository at `https://cdn.roomio.io/sdk/android/maven`, declared in `settings.gradle.kts`.
+The app depends on `io.captur3d:roomio-sdk:0.0.11`, declared in `app/build.gradle.kts`. It comes from the Maven repository at `https://cdn.roomio.io/sdk/android/maven`, declared in `settings.gradle.kts`.
 
 1. Open this folder in Android Studio.
 2. Replace `pk_test_replace_me` in `SampleApplication.kt` with your publishable key.
@@ -19,7 +21,7 @@ The app depends on `io.captur3d:roomio-sdk:0.0.9`, declared in `app/build.gradle
 
 | Step | API |
 | --- | --- |
-| Configure the SDK | `Roomio.configure(publishableKey)` |
+| Configure the SDK | `Roomio.configure(context, publishableKey)` |
 | Check the device | `Roomio.isSupported(context)` |
 | Start a session | `Roomio.startScan(activity)` |
 | Show the camera | `RoomioScanView` in `activity_scan.xml`, with `bind(session)` |
