@@ -1,6 +1,6 @@
 # Roomio SDK — Jetpack Compose sample
 
-A Compose app that scans a room with the Roomio SDK and shares the resulting bundle.
+A Compose app that scans a space with the Roomio SDK and shares the resulting bundle.
 
 The code is in [`android-compose`](https://github.com/CAPTUR3D-tech/roomio-sdk-samples/tree/main/android-compose) in the samples repository.
 
@@ -11,7 +11,7 @@ The code is in [`android-compose`](https://github.com/CAPTUR3D-tech/roomio-sdk-s
 
 ## Setup
 
-The app depends on `io.captur3d:roomio-sdk:0.0.11`, declared in `app/build.gradle.kts`. It comes from the Maven repository at `https://cdn.roomio.io/sdk/android/maven`, declared in `settings.gradle.kts`.
+The app depends on `io.captur3d:roomio-sdk:0.0.13`, declared in `app/build.gradle.kts`. It comes from the Maven repository at `https://cdn.roomio.io/sdk/android/maven`, declared in `settings.gradle.kts`.
 
 1. Open this folder in Android Studio.
 2. Replace `pk_test_replace_me` in `MainActivity.kt` with your publishable key.
@@ -26,7 +26,7 @@ The app depends on `io.captur3d:roomio-sdk:0.0.11`, declared in `app/build.gradl
 | Start a session | `Roomio.startScan(activity)` |
 | Show the camera | `RoomioScanView` in an `AndroidView`, with `bind(session)` |
 | Show onboarding | Shown by the scan view before the scan; controls hide while `session.isShowingOnboarding` is true |
-| Drive the scan | `start()`, and `pause()` / `resume()` from the lifecycle; the scan view's own buttons complete or exit the scan |
+| Drive the scan | `start()`; the scan view's own buttons complete or exit the scan |
 | Follow progress | `session.state` (`finished` or `cancelled` when the scan ends) |
 | Get the result | `export()` returns a `RoomioBundle` |
 | Send diagnostics to Roomio support | `Roomio.exportDiagnostics(context)` returns an encrypted file to share |

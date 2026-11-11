@@ -1,6 +1,6 @@
 # Roomio SDK samples
 
-Complete apps that scan a room with the Roomio SDK, one per platform. Each folder's `README.md` lists every SDK call it uses; its scanning screen is the reference implementation the docs point to.
+Complete apps that scan a space with the Roomio SDK, one per platform. Each folder's `README.md` lists every SDK call it uses; its scanning screen is the reference implementation the docs point to.
 
 To add Roomio to another app, follow https://roomio-sdk.apidocumentation.com/get-started/install-with-ai/index.md. Copy structure from these samples; don't copy their placeholder key.
 

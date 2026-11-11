@@ -1,6 +1,6 @@
 # Roomio SDK — React Native sample
 
-A React Native app that scans a room with the Roomio SDK on its own scanning screen and shares the resulting bundle.
+A React Native app that scans a space with the Roomio SDK on its own scanning screen and shares the resulting bundle.
 
 The code is in [`react-native`](https://github.com/CAPTUR3D-tech/roomio-sdk-samples/tree/main/react-native) in the samples repository.
 
@@ -13,12 +13,12 @@ The code is in [`react-native`](https://github.com/CAPTUR3D-tech/roomio-sdk-samp
 
 ## Setup
 
-The app depends on `@roomio/react-native-sdk` 0.0.11 from `https://cdn.roomio.io/sdk/react-native/0.0.11/roomio-react-native-sdk-0.0.11.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
+The app depends on `@roomio/react-native-sdk` 0.0.13 from `https://cdn.roomio.io/sdk/react-native/0.0.13/roomio-react-native-sdk-0.0.13.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
 
-1. Install this app's packages, from this folder:
+1. Install this app's packages at the versions it was tested with, from this folder:
 
    ```
-   npm install
+   npm ci
    ```
 
 2. Replace `pk_test_replace_me` in `App.tsx` with your publishable key.
@@ -47,7 +47,7 @@ npx react-native run-android
 | Start a session | `Roomio.startScan()` |
 | Show the camera | `<RoomioScanView session={session} />` |
 | Show onboarding | Shown by the scan view before the scan; controls hide while `isShowingOnboarding` is true |
-| Drive the scan | `startPreview()`, `start()`; the scan view's own buttons complete or exit the scan |
+| Drive the scan | `start()`; the scan view's own buttons complete or exit the scan |
 | Follow progress | `useRoomioScanSession(session)` for the state (`finished` or `cancelled` when the scan ends) |
 | Get the result | `export()` resolves with a `RoomioBundle` |
 | Send diagnostics to Roomio support | `Roomio.exportDiagnostics()` resolves with an encrypted file to share |

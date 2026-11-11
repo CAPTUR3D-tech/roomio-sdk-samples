@@ -12,7 +12,6 @@ final class ScanViewController: UIViewController {
     private var closed = false
 
     private let messageLabel = UILabel()
-    private let startButton = UIButton(configuration: .filled())
     private lazy var messagePanel = material(around: messageLabel)
 
     init(session: RoomioScanSession, onDone: @escaping (RoomioBundle?) -> Void) {
@@ -37,14 +36,8 @@ final class ScanViewController: UIViewController {
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
 
-        startButton.configuration?.title = "Start"
-        startButton.configuration?.buttonSize = .large
-        startButton.addAction(UIAction { [weak self] _ in self?.session.start() }, for: .primaryActionTriggered)
-
         messagePanel.translatesAutoresizingMaskIntoConstraints = false
-        startButton.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(messagePanel)
-        view.addSubview(startButton)
 
         NSLayoutConstraint.activate([
             scanView.view.topAnchor.constraint(equalTo: view.topAnchor),
@@ -54,11 +47,9 @@ final class ScanViewController: UIViewController {
             messagePanel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             messagePanel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             messagePanel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            startButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
-            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
 
-        session.startPreview()
+        session.start()
         observeState()
     }
 
@@ -78,7 +69,6 @@ final class ScanViewController: UIViewController {
         if case .failed(let error) = state { text = error.message }
         messageLabel.text = text
         messagePanel.isHidden = onboarding || text == nil
-        startButton.isHidden = onboarding || state != .idle
 
         switch state {
         case .finished where export == nil:

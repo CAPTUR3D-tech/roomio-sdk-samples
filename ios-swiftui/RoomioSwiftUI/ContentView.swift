@@ -5,7 +5,7 @@ struct ContentView: View {
     @State private var session: RoomioScanSession?
     @State private var bundle: RoomioBundle?
     @State private var errorMessage: String?
-    @State private var diagnostics: URL?
+    @State private var diagnostics: SharedFile?
 
     var body: some View {
         if let session {
@@ -34,11 +34,7 @@ struct ContentView: View {
                 }
             }
 
-            if let diagnostics {
-                ShareLink("Share diagnostics", item: diagnostics)
-            } else {
-                Button("Send diagnostics", action: exportDiagnostics)
-            }
+            Button("Send diagnostics", action: exportDiagnostics)
 
             if let errorMessage {
                 Text(errorMessage)
@@ -58,12 +54,13 @@ struct ContentView: View {
             }
         }
         .padding()
+        .sheet(item: $diagnostics) { ShareSheet(url: $0.url) }
     }
 
     private func exportDiagnostics() {
         Task {
             do {
-                diagnostics = try await Roomio.exportDiagnostics()
+                diagnostics = SharedFile(url: try await Roomio.exportDiagnostics())
             } catch {
                 errorMessage = error.localizedDescription
             }
@@ -78,4 +75,20 @@ struct ContentView: View {
             errorMessage = error.localizedDescription
         }
     }
+}
+
+private struct SharedFile: Identifiable {
+    let url: URL
+    var id: URL { url }
+}
+
+/// The system share sheet, opened as soon as the file exists.
+private struct ShareSheet: UIViewControllerRepresentable {
+    let url: URL
+
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: [url], applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ controller: UIActivityViewController, context: Context) {}
 }

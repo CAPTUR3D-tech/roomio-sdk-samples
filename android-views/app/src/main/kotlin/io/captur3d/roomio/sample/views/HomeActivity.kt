@@ -15,7 +15,9 @@ import io.captur3d.roomio.sdk.Roomio
 import io.captur3d.roomio.sdk.RoomioBundle
 import io.captur3d.roomio.sdk.RoomioError
 import io.captur3d.roomio.sdk.RoomioSupport
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 
 class HomeActivity : AppCompatActivity() {
@@ -39,7 +41,7 @@ class HomeActivity : AppCompatActivity() {
         lastScan = findViewById(R.id.last_scan)
         share = findViewById(R.id.share)
         error = findViewById(R.id.error)
-        share.setOnClickListener { bundle?.let { share(it.file) } }
+        share.setOnClickListener { bundle?.let { lifecycleScope.launch { share(it.file) } } }
         findViewById<Button>(R.id.send_diagnostics).setOnClickListener { sendDiagnostics() }
 
         val start = findViewById<Button>(R.id.start)
@@ -76,8 +78,13 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun share(file: File) {
-        val uri = FileProvider.getUriForFile(this, "$packageName.fileprovider", file)
+    private suspend fun share(file: File) {
+        // FileProvider can't share from the folder the SDK saves to, so share a copy in cacheDir/shared (see file_paths.xml).
+        val copy = withContext(Dispatchers.IO) {
+            val dir = File(cacheDir, "shared").apply { deleteRecursively(); mkdirs() }
+            file.copyTo(File(dir, file.name))
+        }
+        val uri = FileProvider.getUriForFile(this, "$packageName.fileprovider", copy)
         val intent = Intent(Intent.ACTION_SEND)
             .setType("application/zip")
             .putExtra(Intent.EXTRA_STREAM, uri)

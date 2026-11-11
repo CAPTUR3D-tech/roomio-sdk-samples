@@ -36,7 +36,9 @@ import io.captur3d.roomio.sdk.RoomioBundle
 import io.captur3d.roomio.sdk.RoomioError
 import io.captur3d.roomio.sdk.RoomioScanSession
 import io.captur3d.roomio.sdk.RoomioSupport
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.io.File
 
 @Composable
@@ -82,7 +84,7 @@ fun ContentScreen() {
         bundle?.let {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text("Last scan: ${Formatter.formatShortFileSize(context, it.sizeBytes)}")
-                TextButton(onClick = { share(context, it.file) }) { Text("Share scan") }
+                TextButton(onClick = { scope.launch { share(context, it.file) } }) { Text("Share scan") }
             }
         }
 
@@ -112,8 +114,13 @@ fun ContentScreen() {
     }
 }
 
-private fun share(context: Context, file: File) {
-    val uri = FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
+private suspend fun share(context: Context, file: File) {
+    // FileProvider can't share from the folder the SDK saves to, so share a copy in cacheDir/shared (see file_paths.xml).
+    val copy = withContext(Dispatchers.IO) {
+        val dir = File(context.cacheDir, "shared").apply { deleteRecursively(); mkdirs() }
+        file.copyTo(File(dir, file.name))
+    }
+    val uri = FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", copy)
     val intent = Intent(Intent.ACTION_SEND)
         .setType("application/zip")
         .putExtra(Intent.EXTRA_STREAM, uri)

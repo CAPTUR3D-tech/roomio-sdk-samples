@@ -1,6 +1,6 @@
 # Roomio SDK samples
 
-Sample apps that scan a room with the Roomio SDK. Each folder has its own README with setup steps.
+Sample apps that scan a space with the Roomio SDK. Each folder has its own README with setup steps.
 
 | Sample | Platform |
 | --- | --- |

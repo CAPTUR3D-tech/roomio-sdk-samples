@@ -1,6 +1,6 @@
 # Roomio SDK — SwiftUI sample
 
-A SwiftUI app that scans a room with the Roomio SDK and shares the resulting bundle.
+A SwiftUI app that scans a space with the Roomio SDK and shares the resulting bundle.
 
 The code is in [`ios-swiftui`](https://github.com/CAPTUR3D-tech/roomio-sdk-samples/tree/main/ios-swiftui) in the samples repository.
 
@@ -11,7 +11,7 @@ The code is in [`ios-swiftui`](https://github.com/CAPTUR3D-tech/roomio-sdk-sampl
 
 ## Setup
 
-The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test` at version 0.0.11. The repository is private, so add a GitHub account with access to it under **Xcode → Settings → Accounts**.
+The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test` at version 0.0.13. The repository is private, so add a GitHub account with access to it under **Xcode → Settings → Accounts**.
 
 1. Open `RoomioSwiftUI.xcodeproj`. Xcode downloads the package.
 2. Select your team under **Signing & Capabilities**.
@@ -27,7 +27,7 @@ The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR
 | Start a session | `Roomio.startScan()` |
 | Show the camera | `RoomioScanView(session:)` |
 | Show onboarding | Shown by the scan view before the scan; controls hide while `session.isShowingOnboarding` is true |
-| Drive the scan | `startPreview()`, `start()`; the scan view's own buttons complete or exit the scan |
+| Drive the scan | `start()` when the scan screen appears; the scan view's own buttons complete or exit the scan |
 | Follow progress | `session.state` (`finished` or `cancelled` when the scan ends) |
 | Get the result | `export()` returns a `RoomioBundle` |
 | Send diagnostics to Roomio support | `Roomio.exportDiagnostics()` returns an encrypted file to share |

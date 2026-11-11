@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BackHandler, Button, StyleSheet, Text, View } from 'react-native';
+import { BackHandler, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {
   RoomioScanView,
@@ -23,7 +23,7 @@ export function ScanScreen({ session, onDone }: Props) {
   }
 
   useEffect(() => {
-    session.startPreview();
+    session.start();
   }, [session]);
 
   useEffect(() => {
@@ -50,11 +50,6 @@ export function ScanScreen({ session, onDone }: Props) {
           <View style={styles.middle} pointerEvents="box-none">
             {failureMessage && <Text style={styles.panel}>{failureMessage}</Text>}
           </View>
-          {state.type === 'idle' && (
-            <View style={[styles.panel, styles.start]}>
-              <Button title="Start" onPress={() => session.start()} />
-            </View>
-          )}
         </SafeAreaView>
       )}
     </View>
@@ -66,5 +61,4 @@ const styles = StyleSheet.create({
   overlay: { flex: 1, padding: 16 },
   middle: { flex: 1, justifyContent: 'center' },
   panel: { backgroundColor: 'rgba(255, 255, 255, 0.85)', borderRadius: 12, padding: 12 },
-  start: { alignSelf: 'center' },
 });

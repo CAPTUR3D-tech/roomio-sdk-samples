@@ -3,7 +3,6 @@ package io.captur3d.roomio.sample.views
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
@@ -24,7 +23,6 @@ class ScanActivity : AppCompatActivity() {
     private lateinit var session: RoomioScanSession
     private lateinit var scanView: RoomioScanView
     private lateinit var message: TextView
-    private lateinit var start: Button
 
     private var exportError: String? = null
     private var export: Job? = null
@@ -43,10 +41,9 @@ class ScanActivity : AppCompatActivity() {
         setContentView(R.layout.activity_scan)
         scanView = findViewById(R.id.scan_view)
         message = findViewById(R.id.message)
-        start = findViewById(R.id.start)
         scanView.bind(session)
 
-        start.setOnClickListener { session.start() }
+        session.start()
         onBackPressedDispatcher.addCallback(this) { close(null) }
 
         lifecycleScope.launch {
@@ -57,23 +54,12 @@ class ScanActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        session.resume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        session.pause()
-    }
-
     private fun render() {
         val state = session.state.value
         val onboarding = session.isShowingOnboarding.value
         val text = exportError ?: (state as? RoomioScanState.Failed)?.error?.message
         message.text = text
         message.visibility = if (onboarding || text == null) View.GONE else View.VISIBLE
-        start.visibility = if (!onboarding && state == RoomioScanState.Idle) View.VISIBLE else View.GONE
 
         when (state) {
             RoomioScanState.Finished -> if (export == null) export = lifecycleScope.launch { exportScan() }

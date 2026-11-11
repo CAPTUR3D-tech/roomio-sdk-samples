@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test",
       "state" : {
-        "revision" : "3dc83f726b6cff7686a7afb854148a4738aef4dd",
-        "version" : "0.0.11"
+        "revision" : "a59d01b688e08c619b306928674729718f96519e",
+        "version" : "0.0.13"
       }
     }
   ],

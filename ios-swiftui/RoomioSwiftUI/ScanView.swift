@@ -20,17 +20,12 @@ struct ScanView: View {
                             .background(.regularMaterial, in: .rect(cornerRadius: 12))
                     }
                     Spacer()
-                    if session.state == .idle {
-                        Button("Start") { session.start() }
-                            .buttonStyle(.borderedProminent)
-                            .controlSize(.large)
-                    }
                 }
                 .padding()
             }
         }
         .onAppear {
-            session.startPreview()
+            session.start()
         }
         .onChange(of: session.state) { _, state in
             switch state {

@@ -8,12 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -22,11 +20,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLifecycleOwner
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleEventObserver
 import io.captur3d.roomio.sdk.RoomioBundle
 import io.captur3d.roomio.sdk.RoomioError
 import io.captur3d.roomio.sdk.RoomioScanSession
@@ -44,6 +39,8 @@ fun ScanScreen(session: RoomioScanSession, onDone: (RoomioBundle?) -> Unit) {
         onDone(bundle)
     }
 
+    LaunchedEffect(session) { session.start() }
+
     LaunchedEffect(state) {
         when (state) {
             RoomioScanState.Finished -> try {
@@ -54,19 +51,6 @@ fun ScanScreen(session: RoomioScanSession, onDone: (RoomioBundle?) -> Unit) {
             RoomioScanState.Cancelled -> close(null)
             else -> Unit
         }
-    }
-
-    val lifecycleOwner = LocalLifecycleOwner.current
-    DisposableEffect(lifecycleOwner) {
-        val observer = LifecycleEventObserver { _, event ->
-            when (event) {
-                Lifecycle.Event.ON_RESUME -> session.resume()
-                Lifecycle.Event.ON_PAUSE -> session.pause()
-                else -> Unit
-            }
-        }
-        lifecycleOwner.lifecycle.addObserver(observer)
-        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
     BackHandler { close(null) }
@@ -94,7 +78,6 @@ fun ScanScreen(session: RoomioScanSession, onDone: (RoomioBundle?) -> Unit) {
                 }
             }
             Spacer(Modifier.weight(1f))
-            if (state == RoomioScanState.Idle) Button(onClick = session::start) { Text("Start") }
         }
     }
 }
