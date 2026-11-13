@@ -14,7 +14,7 @@ type Props = {
 };
 
 export function ScanScreen({ session, onDone }: Props) {
-  const { state, isShowingOnboarding } = useRoomioScanSession(session);
+  const { state, isShowingOnboarding, isShowingDialog } = useRoomioScanSession(session);
   const [message, setMessage] = useState<string | null>(null);
 
   function close(bundle: RoomioBundle | null) {
@@ -45,7 +45,7 @@ export function ScanScreen({ session, onDone }: Props) {
   return (
     <View style={styles.screen}>
       <RoomioScanView session={session} style={StyleSheet.absoluteFill} />
-      {!isShowingOnboarding && (
+      {!isShowingOnboarding && !isShowingDialog && (
         <SafeAreaView style={styles.overlay} pointerEvents="box-none">
           <View style={styles.middle} pointerEvents="box-none">
             {failureMessage && <Text style={styles.panel}>{failureMessage}</Text>}

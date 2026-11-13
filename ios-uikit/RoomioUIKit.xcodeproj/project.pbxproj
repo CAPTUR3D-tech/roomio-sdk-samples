@@ -109,7 +109,7 @@
 			mainGroup = A10000000000000000000002;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A10000000000000000000040 /* XCRemoteSwiftPackageReference "roomio-sdk-ios-test" */,
+				A10000000000000000000040 /* XCRemoteSwiftPackageReference "roomio-sdk-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A10000000000000000000003 /* Products */;
@@ -254,12 +254,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A10000000000000000000040 /* XCRemoteSwiftPackageReference "roomio-sdk-ios-test" */ = {
+		A10000000000000000000040 /* XCRemoteSwiftPackageReference "roomio-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test";
+			repositoryURL = "https://github.com/CAPTUR3D-tech/roomio-sdk-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 0.0.13;
+				version = 0.0.15;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -267,7 +267,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		A10000000000000000000041 /* RoomioSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A10000000000000000000040 /* XCRemoteSwiftPackageReference "roomio-sdk-ios-test" */;
+			package = A10000000000000000000040 /* XCRemoteSwiftPackageReference "roomio-sdk-ios" */;
 			productName = RoomioSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

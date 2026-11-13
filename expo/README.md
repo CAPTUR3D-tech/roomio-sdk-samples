@@ -15,7 +15,7 @@ The SDK has native code, so the app runs as a development build. Expo Go cannot 
 
 ## Setup
 
-The app depends on `@roomio/react-native-sdk` 0.0.13 from `https://cdn.roomio.io/sdk/react-native/0.0.13/roomio-react-native-sdk-0.0.13.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
+The app depends on `@roomio/react-native-sdk` 0.0.15 from `https://cdn.roomio.io/sdk/react-native/0.0.15/roomio-react-native-sdk-0.0.15.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
 
 1. Install this app's packages at the versions it was tested with, from this folder:
 
@@ -40,6 +40,7 @@ The app depends on `@roomio/react-native-sdk` 0.0.13 from `https://cdn.roomio.io
 | Start a session | `Roomio.startScan()` |
 | Show the camera | `<RoomioScanView session={session} />` |
 | Show onboarding | Shown by the scan view before the scan; controls hide while `isShowingOnboarding` is true |
+| Show sheets and dialogs | Shown by the scan view before and during the scan; the sample's message hides while `isShowingDialog` is true |
 | Drive the scan | `start()`; the scan view's own buttons complete or exit the scan |
 | Follow progress | `useRoomioScanSession(session)` for the state (`finished` or `cancelled` when the scan ends) |
 | Get the result | `export()` resolves with a `RoomioBundle` |

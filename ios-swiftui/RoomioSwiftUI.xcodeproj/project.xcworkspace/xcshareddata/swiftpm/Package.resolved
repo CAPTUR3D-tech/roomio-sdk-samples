@@ -1,13 +1,13 @@
 {
-  "originHash" : "32dd0c11dc387e4ec2e66b28cf2593e612dce722c98cfb46bf695f53990f1240",
+  "originHash" : "b4664145956bd71ad41c054edf0d5fba690cbfbc45b4ae139d3feea8243aa45b",
   "pins" : [
     {
-      "identity" : "roomio-sdk-ios-test",
+      "identity" : "roomio-sdk-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/CAPTUR3D-tech/roomio-sdk-ios-test",
+      "location" : "https://github.com/CAPTUR3D-tech/roomio-sdk-ios",
       "state" : {
-        "revision" : "a59d01b688e08c619b306928674729718f96519e",
-        "version" : "0.0.13"
+        "revision" : "d564e062c05b0e05024ab6115ac110ea1f33b6ce",
+        "version" : "0.0.15"
       }
     }
   ],

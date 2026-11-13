@@ -63,12 +63,12 @@ final class ScanViewController: UIViewController {
 
     private func render() {
         let state = session.state
-        let onboarding = session.isShowingOnboarding
+        let covered = session.isShowingOnboarding || session.isShowingDialog
 
         var text = message
         if case .failed(let error) = state { text = error.message }
         messageLabel.text = text
-        messagePanel.isHidden = onboarding || text == nil
+        messagePanel.isHidden = covered || text == nil
 
         switch state {
         case .finished where export == nil:

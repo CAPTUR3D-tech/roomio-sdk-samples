@@ -49,6 +49,7 @@ class ScanActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch { session.isShowingOnboarding.collect { render() } }
+                launch { session.isShowingDialog.collect { render() } }
                 session.state.collect { render() }
             }
         }
@@ -56,10 +57,10 @@ class ScanActivity : AppCompatActivity() {
 
     private fun render() {
         val state = session.state.value
-        val onboarding = session.isShowingOnboarding.value
+        val covered = session.isShowingOnboarding.value || session.isShowingDialog.value
         val text = exportError ?: (state as? RoomioScanState.Failed)?.error?.message
         message.text = text
-        message.visibility = if (onboarding || text == null) View.GONE else View.VISIBLE
+        message.visibility = if (covered || text == null) View.GONE else View.VISIBLE
 
         when (state) {
             RoomioScanState.Finished -> if (export == null) export = lifecycleScope.launch { exportScan() }

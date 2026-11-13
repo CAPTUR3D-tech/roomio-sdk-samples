@@ -11,7 +11,7 @@ The code is in [`android-views`](https://github.com/CAPTUR3D-tech/roomio-sdk-sam
 
 ## Setup
 
-The app depends on `io.captur3d:roomio-sdk:0.0.13`, declared in `app/build.gradle.kts`. It comes from the Maven repository at `https://cdn.roomio.io/sdk/android/maven`, declared in `settings.gradle.kts`.
+The app depends on `io.captur3d:roomio-sdk:0.0.15`, declared in `app/build.gradle.kts`. It comes from the Maven repository at `https://cdn.roomio.io/sdk/android/maven`, declared in `settings.gradle.kts`.
 
 1. Open this folder in Android Studio.
 2. Replace `pk_test_replace_me` in `SampleApplication.kt` with your publishable key.
@@ -26,6 +26,7 @@ The app depends on `io.captur3d:roomio-sdk:0.0.13`, declared in `app/build.gradl
 | Start a session | `Roomio.startScan(activity)` |
 | Show the camera | `RoomioScanView` in `activity_scan.xml`, with `bind(session)` |
 | Show onboarding | Shown by the scan view before the scan; controls hide while `session.isShowingOnboarding` is true |
+| Show sheets and dialogs | Shown by the scan view before and during the scan; the sample's message hides while `session.isShowingDialog` is true |
 | Drive the scan | `start()`; the scan view's own buttons complete or exit the scan |
 | Follow progress | `session.state` (`finished` or `cancelled` when the scan ends), collected with `repeatOnLifecycle` |
 | Get the result | `export()` returns a `RoomioBundle` |

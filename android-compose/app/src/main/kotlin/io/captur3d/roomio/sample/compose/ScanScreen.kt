@@ -32,6 +32,7 @@ import io.captur3d.roomio.sdk.RoomioScanView
 fun ScanScreen(session: RoomioScanSession, onDone: (RoomioBundle?) -> Unit) {
     val state by session.state.collectAsState()
     val showingOnboarding by session.isShowingOnboarding.collectAsState()
+    val showingDialog by session.isShowingDialog.collectAsState()
     var message by remember { mutableStateOf<String?>(null) }
 
     fun close(bundle: RoomioBundle?) {
@@ -67,7 +68,7 @@ fun ScanScreen(session: RoomioScanSession, onDone: (RoomioBundle?) -> Unit) {
             modifier = Modifier.fillMaxSize(),
         )
 
-        if (!showingOnboarding) Column(
+        if (!showingOnboarding && !showingDialog) Column(
             modifier = Modifier.fillMaxSize().safeDrawingPadding().padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {

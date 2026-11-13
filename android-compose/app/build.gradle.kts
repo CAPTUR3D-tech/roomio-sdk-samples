@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-    implementation("io.captur3d:roomio-sdk:0.0.13")
+    implementation("io.captur3d:roomio-sdk:0.0.15")
 
     implementation("androidx.activity:activity-compose:1.9.0")
     implementation(platform("androidx.compose:compose-bom:2024.06.00"))

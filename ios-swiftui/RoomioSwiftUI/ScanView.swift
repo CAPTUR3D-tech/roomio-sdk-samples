@@ -11,7 +11,7 @@ struct ScanView: View {
         ZStack {
             RoomioScanView(session: session)
 
-            if !session.isShowingOnboarding {
+            if !session.isShowingOnboarding, !session.isShowingDialog {
                 VStack {
                     Spacer()
                     if let message = message ?? failureMessage {
