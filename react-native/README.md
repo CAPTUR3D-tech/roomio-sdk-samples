@@ -13,7 +13,7 @@ The code is in [`react-native`](https://github.com/CAPTUR3D-tech/roomio-sdk-samp
 
 ## Setup
 
-The app depends on `@roomio/react-native-sdk` 0.0.15 from `https://cdn.roomio.io/sdk/react-native/0.0.15/roomio-react-native-sdk-0.0.15.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
+The app depends on `@roomio/react-native-sdk` 0.0.16 from `https://cdn.roomio.io/sdk/react-native/0.0.16/roomio-react-native-sdk-0.0.16.tgz`, declared in `package.json`. Its Android SDK comes from `https://cdn.roomio.io/sdk/android/maven`.
 
 1. Install this app's packages at the versions it was tested with, from this folder:
 

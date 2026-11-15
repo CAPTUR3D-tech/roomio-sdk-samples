@@ -11,7 +11,7 @@ The code is in [`ios-uikit`](https://github.com/CAPTUR3D-tech/roomio-sdk-samples
 
 ## Setup
 
-The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR3D-tech/roomio-sdk-ios` at version 0.0.15.
+The app depends on the `RoomioSDK` Swift package from `https://github.com/CAPTUR3D-tech/roomio-sdk-ios` at version 0.0.16.
 
 1. Open `RoomioUIKit.xcodeproj`. Xcode downloads the package.
 2. Select your team under **Signing & Capabilities**.
